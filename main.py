@@ -14,7 +14,9 @@ os.makedirs(SRC_OUTPUT_DIR, exist_ok=True)
 
 if not os.path.exists(SVG_DIR):
     print(f"Submodule path not found: {SVG_DIR}")
-    print("Please run the following command in the project root directory: git submodule update --init --recursive")
+    print(
+        "Please run the following command in the project root directory: git submodule update --init --recursive"
+    )
     exit(1)
 
 def copy_static_file(candidates, dst):
@@ -26,7 +28,10 @@ def copy_static_file(candidates, dst):
     return False
 
 icon_src = None
-for candidate in [os.path.join(BASE_DIR, "src", "icon.png"), os.path.join(BASE_DIR, "icon.png")]:
+for candidate in [
+    os.path.join(BASE_DIR, "src", "icon.png"),
+    os.path.join(BASE_DIR, "icon.png"),
+]:
     if os.path.exists(candidate):
         icon_src = candidate
         break
@@ -44,19 +49,22 @@ if icon_src:
 
 copy_static_file(
     [os.path.join(BASE_DIR, "main.js"), os.path.join(BASE_DIR, "src", "main.js")],
-    os.path.join(OUTPUT_DIR, "main.js")
+    os.path.join(OUTPUT_DIR, "main.js"),
 )
 copy_static_file(
-    [os.path.join(BASE_DIR, "src", "manifest.json"), os.path.join(BASE_DIR, "manifest.json")],
-    os.path.join(OUTPUT_DIR, "manifest.json")
+    [
+        os.path.join(BASE_DIR, "src", "manifest.json"),
+        os.path.join(BASE_DIR, "manifest.json"),
+    ],
+    os.path.join(OUTPUT_DIR, "manifest.json"),
 )
 copy_static_file(
     [os.path.join(BASE_DIR, "README.md"), os.path.join(BASE_DIR, "src", "README.md")],
-    os.path.join(OUTPUT_DIR, "README.md")
+    os.path.join(OUTPUT_DIR, "README.md"),
 )
 copy_static_file(
     [os.path.join(BASE_DIR, "LICENSE"), os.path.join(BASE_DIR, "src", "LICENSE")],
-    os.path.join(OUTPUT_DIR, "LICENSE")
+    os.path.join(OUTPUT_DIR, "LICENSE"),
 )
 
 emoji_map = {}
@@ -69,7 +77,9 @@ for filename in os.listdir(SVG_DIR):
         raw_cp = filename[:-4].lower()
         file_path = os.path.join(SVG_DIR, filename)
         with open(file_path, "rb") as f:
-            b64_str = "data:image/svg+xml;base64," + base64.b64encode(f.read()).decode("utf-8")
+            b64_str = "data:image/svg+xml;base64," + base64.b64encode(f.read()).decode(
+                "utf-8"
+            )
             emoji_map[raw_cp] = b64_str
             emoji_map[raw_cp.replace("-fe0f", "")] = b64_str
             if not raw_cp.endswith("-fe0f"):
@@ -85,9 +95,11 @@ for i in range(NUM_CHUNKS):
     chunk_items = dict(items[i * chunk_size : (i + 1) * chunk_size])
     file_name = f"emoji_data_{i + 1}.js"
     file_path = os.path.join(SRC_OUTPUT_DIR, file_name)
-    chunk_json = json.dumps(chunk_items, separators=(',', ':'))
+    chunk_json = json.dumps(chunk_items, separators=(",", ":"))
     with open(file_path, "w", encoding="utf-8") as f:
-        f.write(f"window.EMOJI_MAP = Object.assign(window.EMOJI_MAP || {{}}, {chunk_json});\n")
+        f.write(
+            f"window.EMOJI_MAP = Object.assign(window.EMOJI_MAP || {{}}, {chunk_json});\n"
+        )
 
 print(f"Split EMOJI_MAP into {NUM_CHUNKS} files in src/ directory.")
 print(f"Output directory: {OUTPUT_DIR}")
