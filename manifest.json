@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Twemoji Local Replacer",
+  "version": "1.0.0",
+  "description": "A native Twemoji replacement plugin based on embedded Base64.",
+  "icons": {
+    "16": "src/icon-16.png",
+    "32": "src/icon-32.png",
+    "48": "src/icon-48.png",
+    "128": "src/icon-128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ef021dd4-5488-488e-acb1-81d3bf421341}",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/*",
+        "https://x.com/*"
+      ],
+      "js": [
+        "src/emoji_data_1.js",
+        "src/emoji_data_2.js",
+        "src/emoji_data_3.js",
+        "src/emoji_data_4.js",
+        "src/emoji_data_5.js",
+        "src/emoji_data_6.js",
+        "src/emoji_data_7.js",
+        "src/emoji_data_8.js",
+        "main.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
