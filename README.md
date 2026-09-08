@@ -6,24 +6,30 @@ A browser extension for replacing Twitter / X emojis with local embedded Base64 
 
 ## Installation
 
-### 1. Firefox
+The extension is currently self-distributed. A store listing may be added later; until then, use the files from [Releases](https://github.com/auspiceshirley/twitter-twemoji-local-replacer/releases).
 
-Firefox users can install and update the extension directly from the official store:
+### 1. Firefox or Tor Browser
 
-[Install from Firefox Add-ons](https://addons.mozilla.org/addon/twitter-twemoji-local-replacer/)
+1. Download the latest signed `.xpi` from the **Releases** page.
+2. Open `about:addons` → the gear icon → **Install Add-on From File…**, and select the `.xpi`.
+3. Confirm the install prompt.
 
----
+After installation, Firefox checks [updates.json](https://raw.githubusercontent.com/auspiceshirley/twitter-twemoji-local-replacer/master/updates.json) for newer signed builds. You do not need to reinstall each version by hand.
 
-### 2. Chromium-based Browsers (Chrome, Edge, Brave, Vivaldi, etc.)
+Tor Browser uses the same signed `.xpi`. Install it the same way from `about:addons`. Automatic updates also use `updates.json`; if a check fails (common when the circuit or extension update requests are restricted), download the newer `.xpi` from Releases and install it over the existing add-on. Do not load an unpacked folder in Firefox or Tor Browser — only the Mozilla-signed `.xpi` will install on release builds.
 
-Follow these steps to install manually:
+If a Firefox Add-ons (AMO) listing is published later, that page will be linked here. Store and self-hosted installs share the same extension ID; do not install both copies.
 
-1. Download the latest release `.zip` file from the **Releases** page and extract it to a permanent directory on your computer (a folder that you will not accidentally move or delete).
-2. Open your browser's extension management page:
+### 2. Chromium-based browsers (Google Chrome, Microsoft Edge, Brave, Vivaldi, etc.)
+
+These browsers have no self-hosted update channel. Reinstall from a new Release zip when you want an update.
+
+1. Download the latest release `.zip` and extract it to a permanent directory (do not move or delete that folder later).
+2. Open the extensions page:
    - Chrome: `chrome://extensions/`
    - Edge: `edge://extensions/`
-3. Enable "`Developer mode`" using the toggle switch.
-4. Click "Load unpacked" and select the `extracted directory`.
+3. Turn on **Developer mode**.
+4. Click **Load unpacked** and select the extracted directory.
 
 ---
 

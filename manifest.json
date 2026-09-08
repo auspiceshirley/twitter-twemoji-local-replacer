@@ -9,9 +9,11 @@
     "48": "src/icon-48.png",
     "128": "src/icon-128.png"
   },
+  "author": "Shirley Auspice",
   "browser_specific_settings": {
     "gecko": {
-      "id": "{ef021dd4-5488-488e-acb1-81d3bf421341}",
+      "id": "{9fc8c38a-18c5-4aff-8e07-eb44752b4636}",
+      "update_url": "https://raw.githubusercontent.com/auspiceshirley/twitter-twemoji-local-replacer/master/updates.json",
       "data_collection_permissions": {
         "required": [
           "none"

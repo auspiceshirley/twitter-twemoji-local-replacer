@@ -1,0 +1,28 @@
+{
+    "addons": {
+        "twitter-twemoji-local-replacer@auspiceshirley.dev": {
+            "updates": [
+                {
+                    "version": "1.0.1",
+                    "update_link": "https://github.com/auspiceshirley/twitter-twemoji-local-replacer/releases/download/v1.0.1/twitter-twemoji-local-replacer-1.0.1.xpi",
+                    "update_hash": "sha256:82c4bdf01e0e7acc15df79cfc40a64931ff48a9fe89ece6c07f9eb0ca5208233",
+                    "browser_specific_settings": {
+                        "gecko": {
+                            "strict_min_version": "109.0"
+                        }
+                    }
+                },
+                {
+                    "version": "1.0.0",
+                    "update_link": "https://github.com/auspiceshirley/twitter-twemoji-local-replacer/releases/download/v1.0.0/twitter-twemoji-local-replacer-1.0.0.xpi",
+                    "update_hash": "sha256:31f7e63e153bd192fae64b79722e6eae134a62eef1dff5d87ac1b0ac57c4199b",
+                    "browser_specific_settings": {
+                        "gecko": {
+                            "strict_min_version": "109.0"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
